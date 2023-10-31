@@ -9,6 +9,6 @@ class ExtracurricularController extends Controller
 {
     public function index()
     {
-        return view('extracurricular', ["title" => "Extra Curricular", "students" => Extracurricular::all()],);
+        return view('extracurricular', ["title" => "Extra Curricular", "extras" => Extracurricular::all()],);
     }
 }

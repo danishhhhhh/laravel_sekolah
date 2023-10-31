@@ -24,7 +24,7 @@ class Extracurricular
             "id" => 3,
             "nama" => "Ping Pong",
             "nama_pembina" => "Pembina 3",
-            "description" => "Menangkis bola kecil di atas",
+            "description" => "Menangkis bola kecill di atas",
         ],
         [
             "id" => 4,

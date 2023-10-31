@@ -18,8 +18,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="/home">Home</a>
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link " href="/home">Home</a>
+                    <a class="nav-link {{($title == "About Page")?'active':''}}" href="/about">About</a>
                     <a class="nav-link" href="/student">Student</a>
                     <a class="nav-link" href="/extracurricular">Extra</a>
                 </div>

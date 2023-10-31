@@ -34,7 +34,7 @@ Route::get('/home', function () {
 
 Route::get('/about', function () {
     return view('about', [
-        "title" => "about",
+        "title" => "About Page",
         "nama" => "Danish Ardiyanta Rizqy Pramuditya",
         "kelas" => "11 PPLG 1",
         "image" => "image/arimage.png",

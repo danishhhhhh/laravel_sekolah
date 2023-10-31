@@ -13,9 +13,9 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($students as $index => $student)
+        @foreach($students as $student)
             <tr>
-                <th scope="row">{{$index + 1}}</th>
+                <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$student['nis']}}</td>
                 <td>{{$student['nama']}}</td>
                 <td>{{$student['kelas']}}</td>

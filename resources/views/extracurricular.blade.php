@@ -12,12 +12,12 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($students as $index => $student)
+        @foreach($extras as $extra)
             <tr>
-                <th scope="row">{{$index + 1}}</th>
-                <td>{{$student['nama']}}</td>
-                <td>{{$student['nama_pembina']}}</td>
-                <td>{{$student['description']}}</td>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$extra['nama']}}</td>
+                <td>{{$extra['nama_pembina']}}</td>
+                <td>{{$extra['description']}}</td>
             </tr>
         @endforeach
         </tbody>
