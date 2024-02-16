@@ -1,7 +1,7 @@
 @extends("layout.main")
 
 @section("container")
-    <h1>Ini Halaman About</h1>
+    <h1>Ini Halaman {{$title}}</h1>
 
     <p class="fs-3">Nama: {{$nama}}</p>
     <p class="fs-3">Kelas: {{$kelas}}</p>

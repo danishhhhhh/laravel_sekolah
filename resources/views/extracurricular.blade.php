@@ -1,7 +1,7 @@
 @extends("layout.main")
 
 @section("container")
-    <h1>Ini Halaman Extra Curricular</h1>
+    <h1>Ini Halaman {{$title}}</h1>
     <table class="table">
         <thead>
         <tr>

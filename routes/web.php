@@ -1,7 +1,12 @@
 <?php
 
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\extracurricularController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StudentController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,7 +33,7 @@ Route::get('/hello', function () {
 
 Route::get('/home', function () {
     return view('home', [
-        "title" => "home"
+        "title" => "Home"
     ]);
 });
 
@@ -41,12 +46,52 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/student', [StudentController::class, 'index']);
-
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 
 Route::get('/users', function (Request $request) {
     return $request;
+});
+
+Route::group(["prefix" => "/student"], function (){
+    Route::get('/', [StudentController::class, 'index']);
+    Route::get('/filter/{id}', [StudentController::class, 'filter']);
+    Route::get('/detail/{student}', [StudentController::class, 'show']);
+});
+
+Route::group(["prefix" => "/kelas"], function (){
+    Route::get('/', [KelasController::class, 'index']);
+});
+
+Route::group(["prefix" => "/auth"], function (){
+    Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');;
+    Route::post('/login', [LoginController::class, 'auth']);
+    Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+    Route::post('/register', [RegisterController::class, 'store']);
+    Route::get('/logout', [LogoutController::class, 'logout'])->middleware('auth');
+});
+
+Route::group(["prefix" => "/dashboard"], function (){
+    Route::middleware('auth')->group(function () {
+        Route::group(["prefix" => "/student"], function () {
+            Route::get('/', [StudentController::class, 'index']);
+            Route::get('/filter/{id}', [StudentController::class, 'filter']);
+            Route::get('/detail/{student}', [StudentController::class, 'show']);
+            Route::get('/create', [StudentController::class, 'create']);
+            Route::get('/edit/{student}', [StudentController::class, 'edit']);
+            Route::post('/add', [StudentController::class, 'store']);
+            Route::post('/update/{student}', [StudentController::class, 'update']);
+            Route::delete('/delete/{student}', [StudentController::class, 'destroy']);
+        });
+
+        Route::group(["prefix" => "/kelas"], function () {
+            Route::get('/', [KelasController::class, 'index']);
+            Route::get('/create', [KelasController::class, 'create']);
+            Route::get('/edit/{kelas}', [KelasController::class, 'edit']);
+            Route::post('/add', [KelasController::class, 'store']);
+            Route::post('/update/{kelas}', [KelasController::class, 'update']);
+            Route::delete('/delete/{kelas}', [KelasController::class, 'destroy']);
+        });
+    });
 });
 
 
