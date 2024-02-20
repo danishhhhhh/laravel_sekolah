@@ -24,10 +24,10 @@
                 </li>
             @else
                 <button type="button" class="btn btn-outline-light">
-                    <a class="nav-link text-white" href="/auth/register">REGISTER</a>
+                    <a class="nav-link  " href="/auth/register">REGISTER</a>
                 </button>
                 <button type="button" class="btn btn-outline-light">
-                    <a class="nav-link text-white" href="/auth/login">SIGNIN</a>
+                    <a class="nav-link" href="/auth/login">SIGNIN</a>
                 </button>
             @endauth
         </div>
